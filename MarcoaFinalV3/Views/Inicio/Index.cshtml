@@ -1,0 +1,189 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Inicio.cshtml";
+}
+
+<div class="col-xs-12">
+    <h1 style="text-align:center; background-color:black; color:white">
+        Bienvenido a Restaurant Marcoa
+    </h1>
+    <br />
+</div>
+
+<div class="col-xs-12" style="width: 780px; margin: 0 auto;" >
+
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="margin: 0 auto;">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/Imagenes/carrousel1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="~/Imagenes/carrousel2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="~/Imagenes/carrousel3.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+</div>
+<div class="col-xs-12 text-center " style="margin-top:60px; margin-bottom:100px;">
+    <h1>Ubicación</h1>
+    <br />
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4051102685944!2d-70.70345938574228!3d-33.59479188073288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d944d83540bb%3A0x1a0fb96c3c83dc2b!2sRESTAURANT%20MARCOA!5e0!3m2!1ses!2scl!4v1665192309416!5m2!1ses!2scl" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div class="col-xs-12 text-center " style="margin-top:100px; margin-bottom:100px;">
+    <h1>Horarios de Atencion</h1>
+    <br />
+    <p>De Lunas a sabado, desde las 12:00 a las 23:00 hrs, y domingos, desde las 12:00 a las 22:00 hrs.</p>
+</div>
+
+<div class="row my-3" style="margin-top:50px;">
+    <div class="col-2">
+    </div>
+    <div class="col-4">
+        <img src="~/Imagenes/Logo.png" alt="Bienvenido Marcoa" class="img-fluid mx-auto" style="width:400px;" />
+    </div>
+    <div class="col-4 mt-5">
+        <h1 class="text-center mb-5" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Bienvenidos a Restaurant Marcoa</h1>
+
+        <div>
+            <p style="font-size:16px; text-align:center">
+                Estamos felices de llevar 10 años brindando lo mejor de la comida del mar. <br />
+                Si aun no lo has probado.¡te invitamos a hacerlo!<br />
+                Puedes pedir para servir o para retirar en el local los platos que mas se adecuen a tus gustos
+            </p>
+        </div>
+        <div style="position:center;">
+
+            <a class="nav-link btn btn-success" style="color:white; margin-top:30px; position:relative; left:130px; width:200px; background-color:gray;" href="http://cartas.horecaqr.com/c/marcoa">Carta</a>
+
+        </div>
+
+    </div>
+    <div class="col-2">
+
+    </div>
+
+</div>
+<div class="col-xs-12">
+
+</div>
+<div class="col-xs-12 text-center" style="margin-top:50px; font-size:30px; color:black !important;">
+    <h1>Platos Populares</h1>
+
+</div>
+<div class="row mt-5" style="margin-top:40px;">
+    <div class="col-2">
+
+    </div>
+
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <img src="~/Imagenes/img-paila-marina.jpg" class="card-img-top" alt="..." height="210px;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Paila Marina</h5>
+                <p class="card-text text-center">Exquisito Plato el cual contiene los mariscos mas frescos de la zona.</p>
+                <a href="#" class="btn btn-primary">Ir a Tienda</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <img src="~/Imagenes/jardin-de-mariscos.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Jardin de Mariscos</h5>
+                <p class="card-text text-center">Una de las preparaciones mas populares, cuenta con una gran variedad de mariscos surtidos.</p>
+                <a href="#" class="btn btn-primary">Ir a Tienda</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-3">
+        <div class="card" style="width: 21rem;">
+            <img src="~/Imagenes/Receta-de-lomo-a-lo-pobre.jpg" class="card-img-top" alt="..." width="300px;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Lomo de res</h5>
+                <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Ir a Tienda</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+
+    </div>
+</div>
+<div class="row mt-5" style="margin-top:40px;">
+    <div class="col-2">
+
+    </div>
+
+    <div class="col-3">
+        <div class="card" style="width: 17rem;">
+            <img src="~/Imagenes/Suspiro-Limeno-ajustada-web-570x458.jpg" class="card-img-top" alt="..." height="180px;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Suspiro Limeño</h5>
+                <p class="card-text text-center">Uno de los postres mas famosos, no te quedes sin probar la mejor receta hecha en casa.</p>
+                <a href="#" class="btn btn-primary">Ir a Tienda</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-3">
+        <div class="card" style="width: 19rem;">
+            <img src="~/Imagenes/chupe-de-locos.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Chupe de Jaiba</h5>
+                <p class="card-text">Una de las especialidades de la casa, no te pierdas este increible plato lleno de sabor y cremosidad.</p>
+                <a href="#" class="btn btn-primary">Ir a Tienda</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-3">
+        <div class="card" style="width: 21rem; height:23rem;">
+            <img src="~/Imagenes/virginia-recetas.caldillo.jpg" class="card-img-top" alt="..." >
+            <div class="card-body">
+                <h5 class="card-title text-center">Caldillo de Congrio</h5>
+                <p class="card-text">Riquisimo plato gastronomico, uno de los mas famosos a nivel nacional.</p>
+                <a href="#" class="btn btn-primary">Ir a Tienda</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+
+
+
+    </script>
+
+
+
+}
+

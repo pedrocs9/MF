@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Platos";
+    Layout = "~/Views/Shared/_Layout_Cocinero.cshtml";
+}
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3 bg-dark">
+        <h6 class="m-0 font-weight-bold text-white">Lista de Platos</h6>
+    </div>
+    <div class="card-body">
+
+        <hr />
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="tabla" style="width:100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Nombre Plato</th>
+                                <th>Detalle</th>
+                                <th>Estado</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script>
+        var tabladata;
+
+        $(document).ready(function () {
+
+            tabladata = $('#tabla').DataTable({
+                    responsive:true,
+                    "ajax": {
+                        "url": '@Url.Action("ListarPlatos", "Cocinero")',
+                        "type": "GET",
+                        "datatype": "json"
+                    },
+                    "columns": [
+                        { "data": "Nombre" },
+                        { "data": "Detalle" },
+
+                        {
+                            "data": "Estado", "render": function (data) {
+                                if (data) {
+                                    return '<span class="badge bg-success">Activo</span>'
+                                } else {
+                                    return '<span class="badge bg-danger">No Activo</span>'
+                                }
+                            }
+                        },
+                        {
+                            "data": "IdProducto", "render": function (data, type, row, meta) {
+
+                                return $("<button>").addClass("btn btn-success btn-activar btn-sm").append(
+                                    $("<i>").addClass("fas fa-check")
+                                ).attr({ "data-informacion": JSON.stringify(row) })[0].outerHTML
+
+
+
+                            },
+                            "orderable": false,
+                            "searchable": false,
+                            "width": "90px"
+                        }
+
+                    ],
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
+                    }
+                });
+        });
+
+
+        $(document).on('click', '.btn-activar', function (event) {
+            var json = $(this).data("informacion")
+
+            jQuery.ajax({
+                url: '@Url.Action("ActivarPlato", "Cocinero")',
+                type: "POST",
+                data: JSON.stringify({ id: json.IdProducto}),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                    if (data.resultado) {
+                        tabladata.ajax.reload();
+                    } else {
+                        alert("No se pudo activar/desactivar")
+                    }
+                },
+                error: function (error) {
+                    console.log(error)
+                },
+                beforeSend: function () {
+
+                },
+            });
+        });
+
+
+
+    </script>
+
+}

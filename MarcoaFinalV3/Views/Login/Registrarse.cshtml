@@ -1,0 +1,187 @@
+﻿@model MarcoaFinalV3.Models.Usuario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registrarse</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body class="bg-dark">
+
+    <section class="vh-100" style="background-color: #eee;">
+        <div class="container h-90">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-12 col-xl-11">
+                    <div class="card text-black" style="border-radius: 25px;">
+                        <div class="card-body p-md-5">
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrate</p>
+
+                                    <form class="mx-1 mx-md-4" action="@Url.Action("Registrarse","Login")" method="post">
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" id="inputFirstName" class="form-control" name="NNombres" />
+                                                <label class="form-label" for="form3Example1c">Nombres</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" id="inputLastName" name="NApellidos" class="form-control" />
+                                                <label class="form-label" for="form3Example3c">Apellidos</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="email" id="inputEmail" class="form-control" name="NCorreo" />
+                                                <label class="form-label" for="form3Example4c">Correo</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="password" id="form3Example4cd" class="form-control" id="inputPassword" name="NContrasena" />
+                                                <label class="form-label" for="form3Example4cd">Contraseña</label>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="password" id="form3Example4cd" class="form-control" id="inputPasswordConfirm" name="NConfirmarContrasena" />
+                                                <label class="form-label" for="form3Example4cd">Repetir Contraseña</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-floating">
+                                            @{if (ViewBag.Error != null)
+                                                {
+                                                    <div class="alert alert-danger" role="alert">
+                                                        @ViewBag.Error
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+
+
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <button class="btn btn-primary btn-block mx-1" type="submit">Crear Cuenta</button>
+                                            <div class="text-center"><a class=" btn btn-success text-light" href="@Url.Action("Index","Login")">Volver</a></div>
+                                        </div>
+                                        <div class="form-floating">
+                                            @{if (ViewBag.Error2 != null)
+                                                {
+                                                    <div class="alert alert-danger" role="alert">
+                                                        @ViewBag.Error2
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                                    <img src="~/Imagenes/Logo.png"
+                                         class="img-fluid" alt="Sample image">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @*<div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Crear Cuenta</h3></div>
+                                    <div class="card-body">
+                                        <form action="@Url.Action("Registrarse","Login")" method="post">
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputFirstName" name="NNombres" type="text" placeholder="Nombres"  />
+                                                        <label for="inputFirstName">Nombres</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="inputLastName" name="NApellidos" type="text" placeholder="Apellidos"  />
+                                                        <label for="inputLastName">Apellidos</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="form-floating mb-3">
+                                                    <input class="form-control" id="inputEmail" type="email" name="NCorreo" placeholder="name@example.com" />
+                                                    <label for="inputEmail">Correo</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputPassword" name="NContrasena" type="password" placeholder="Contraseña"  />
+                                                        <label for="inputPassword">Password</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputPasswordConfirm" name="NConfirmarContrasena" type="password" placeholder="Confirmar contraseña"  />
+                                                        <label for="inputPasswordConfirm">Confirmar Contraseña</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-floating">
+                                                @{if (ViewBag.Error != null)
+                                                    {
+                                                        <div class="alert alert-danger" role="alert">
+                                                            @ViewBag.Error
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+                                            <div class="mt-4 mb-0">
+                                                <div class="d-grid">
+                                                    <button class="btn btn-primary btn-block" type="submit">Crear Cuenta</button>
+                                                    <br />
+                                                    <a class=" btn btn-success text-light" href="@Url.Action("Index","Login")">Volver</a>
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer text-center py-3">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+        </div>*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

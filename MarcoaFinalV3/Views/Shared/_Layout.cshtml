@@ -1,0 +1,206 @@
+﻿@using MarcoaFinalV3.Helpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>Marcoa Restaurant</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/PluginsCSS")
+    @RenderSection("estilos", required: false)
+
+    <style type="text/css">
+        body {
+            padding-top: 0px;
+        }
+        footer {
+            background-color: black;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbarcito">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="@Url.Content("~/Imagenes/Logo.png")" width="65" height="45" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="@Url.Action("IndexAdmin", "Home")">Inicio</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mantenedor
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="@Url.Action("Crear", "Restaurant")">Restaurant</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Crear", "Usuario")">Usuarios</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Crear", "Categoria")">Categoria</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Crear", "Producto")">Producto</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Crear", "Mesa")">Mesas</a></li>
+                        </ul>
+                    </li>
+                  
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Reportes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="@Url.Action("Ventas", "Reporte")">Ventas</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Producto", "Reporte")">Ventas Web</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Mesa", "Reporte")">Mesas</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Vendedor", "Reporte")">Vendedor</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Tienda Web
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="@Url.Action("Crear", "Categoria")">Categoria</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Crear", "Marca")">Marca</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Producto", "ProductoWeb")">Productos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="@Url.Action("Index","Tienda")" target="_blank">Ver Tienda</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex">
+
+                    <a href="@Url.Action("Salir", "Home")" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>
+                            <strong>Salir</strong>
+                        </span>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div class="container-fluid mt-4">
+        @RenderBody()
+        <hr />
+        <footer style="bottom:0;">
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Content/PluginsJS")
+<script type="text/javascript">
+        $.extend({ MisUrls: { url: {}, urls: function (a) { $.extend($.MisUrls.url, a); } } });
+         //CONTROLADOR ROL
+        $.MisUrls.urls({ _ObtenerRoles: '@Url.Action("Obtener", "Rol")' });
+        $.MisUrls.urls({ _GuardarRol: '@Url.Action("Guardar", "Rol")' });
+    $.MisUrls.urls({ _EliminarRol: '@Url.Action("Eliminar", "Rol")' });
+
+    //CONTROLADOR RESTAURANT
+        $.MisUrls.urls({ _ObtenerRestaurantes: '@Url.Action("Obtener", "Restaurant")' });
+         $.MisUrls.urls({ _GuardarRestaurante: '@Url.Action("Guardar", "Restaurant")' });
+    $.MisUrls.urls({ _EliminarRestaurante: '@Url.Action("Eliminar", "Restaurant")' });
+
+    //CONTROLADOR CATEGORIA
+        $.MisUrls.urls({ _ObtenerCategorias: '@Url.Action("Obtener", "Categoria")' });
+        $.MisUrls.urls({ _GuardarCategoria: '@Url.Action("Guardar", "Categoria")' });
+        $.MisUrls.urls({ _EliminarCategoria: '@Url.Action("Eliminar", "Categoria")' });
+
+    //CONTROLADOR USUARIO
+        $.MisUrls.urls({ _ObtenerUsuarios: '@Url.Action("Obtener", "Usuario")' });
+        $.MisUrls.urls({ _GuardarUsuario: '@Url.Action("Guardar", "Usuario")' });
+    $.MisUrls.urls({ _EliminarUsuario: '@Url.Action("Eliminar", "Usuario")' });
+
+    //CONTROLADOR PRODUCTO
+        $.MisUrls.urls({ _ObtenerProductos: '@Url.Action("Obtener", "Producto")' });
+        $.MisUrls.urls({ _ObtenerProductosPorTienda: '@Url.Action("ObtenerPorRestaurant", "Producto")' });
+        $.MisUrls.urls({ _GuardarProducto: '@Url.Action("Guardar", "Producto")' });
+        $.MisUrls.urls({ _EliminarProducto: '@Url.Action("Eliminar", "Producto")' });
+        $.MisUrls.urls({ _ObtenerAsignaciones: '@Url.Action("ObtenerAsignaciones", "Producto")' });
+        $.MisUrls.urls({ _RegistrarProductoTienda: '@Url.Action("RegistrarProductoTienda", "Producto")' });
+        $.MisUrls.urls({ _ModificarProductoTienda: '@Url.Action("ModificarProductoTienda", "Producto")' });
+    $.MisUrls.urls({ _EliminarProductoTienda: '@Url.Action("EliminarProductoTienda", "Producto")' });
+
+    //CONTROLADOR COMPRA
+        $.MisUrls.urls({ _ObtenerCompras: '@Url.Action("Obtener", "Compra")' });
+        $.MisUrls.urls({ _GuardarCompra: '@Url.Action("Guardar", "Compra")' });
+        $.MisUrls.urls({ _DocumentoCompra: '@Url.Action("Documento", "Compra")' });
+
+    //CONTROLADOR PROVEEDOR
+        $.MisUrls.urls({ _ObtenerProveedores: '@Url.Action("Obtener", "Proveedor")' });
+        $.MisUrls.urls({ _GuardarProveedor: '@Url.Action("Guardar", "Proveedor")' });
+        $.MisUrls.urls({ _EliminarProveedor: '@Url.Action("Eliminar", "Proveedor")' });
+
+
+         //CONTROLADOR REPORTE
+        $.MisUrls.urls({ _ObtenerReporteProducto :'@Url.Action("ObtenerProducto", "Reporte")' });
+    $.MisUrls.urls({ _ObtenerReporteVenta: '@Url.Action("ObtenerVenta", "Reporte")' });
+
+    //CONTROLADOR MESAS
+            $.MisUrls.urls({ _ObtenerMesas :'@Url.Action("ListarMesa", "Mesa")' });
+
+
+        //lenguaje español datatable
+        $.MisUrls.urls({ Url_datatable_spanish: '@Url.Content("~/content/plugins/datatables/js/datatable_spanish.json")' });
+</script>
+    @*<script>
+
+        function activarMenu(menuactivo) {
+
+            var ul = $("ul.navbar-nav");
+            ul.find("li.nav-item").each(function (i, li) {
+
+                var a;
+
+                if ($(li).find("div.dropdown-menu").length != 0) {
+
+                    var div = $($(li).find("div.dropdown-menu"))
+
+                    div.find("a.dropdown-item").each(function (x, tagA) {
+                        if ($(tagA).attr("name") == menuactivo) {
+
+                            $(li).addClass("active");
+                            return false;
+                        }
+                    })
+                } else {
+
+                    a = $(li).find("a.nav-link");
+
+                    if ($(a).attr("name") == menuactivo) {
+                        $(li).addClass("active");
+                        return false;
+                    }
+                }
+            });
+        }
+
+    </script>*@
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>
